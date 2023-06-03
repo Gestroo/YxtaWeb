@@ -78,23 +78,6 @@ function SaveReportModal(props: SaveReportProps){
                                      renderInput={(params) => <TextField {...params}/>}
                                      onChange={(newValue:Dayjs|null)=>{setEndDate(newValue)}}/>
                     </LocalizationProvider>
-                    <FormControl sx={{
-                        width:"60%",
-                        mt:2,
-                        mb:2,
-                    }}>
-                        <InputLabel id="demo-simple-select-label">Параметр</InputLabel>
-                        <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            label="Параметр">
-                            <MenuItem value="">
-                                <em>None</em> </MenuItem>
-                            <MenuItem value={10}>Шаблон 1</MenuItem>
-                            <MenuItem value={20}>Шаблон 2</MenuItem>
-                            <MenuItem value={30}>Шаблон 3</MenuItem>
-                        </Select>
-                    </FormControl>
                     <Button onClick={handleClose} variant="contained">
                         Сохранить
                     </Button>

@@ -11,10 +11,12 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
 import SaveReportModal from "./SaveReportModal";
+import {AttributeModel} from "../models/AttributeModel";
 
 interface PreviewProps {
     open: boolean,
     handlerClose: () => void
+    attributes: AttributeModel[]
 }
 const style = {
     position: 'absolute' as 'absolute',
@@ -82,9 +84,7 @@ function ReportPreviewModal(props: PreviewProps){
                                     <TableRow>
                                         <TableCell>Название</TableCell>
                                         <TableCell align="right">Установка</TableCell>
-                                        <TableCell align="right">Вес</TableCell>
-                                        <TableCell align="right">Индекс осцилляции</TableCell>
-                                        <TableCell align="right">Эффективность обслуживания</TableCell>
+                                        {props.attributes.map((attribute)=>(<TableCell align="right">{attribute.title}</TableCell>))}
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
