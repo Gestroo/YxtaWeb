@@ -22,7 +22,7 @@ class PatternService {
             });
     }
 
-    AddPattern(data:PatternModel){
+    addPattern(data:PatternModel){
         return axios.post(API_URL + "add-pattern",data,)
             .then((response) => {
                 const data: Answer = response.data;
@@ -33,7 +33,7 @@ class PatternService {
                 return false;
             });
     }
-    MakeReport(data:ReportModel){
+    makeReport(data:ReportModel){
         return axios.post(API_URL + "report",data,)
             .then((response) => {
                 const data: Answer = response.data;

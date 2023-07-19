@@ -1,4 +1,5 @@
 import {User} from "./UserModel";
+import {AttributeModel} from "./AttributeModel";
 
 export interface PatternModel {
     id: number,
@@ -8,4 +9,5 @@ export interface PatternModel {
     date:string,
     frequency:number,
     isActive:boolean,
+    attributes:AttributeModel[],
 }

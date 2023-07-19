@@ -23,6 +23,8 @@ import AttributeService from "../redux/services/AttributeService";
 import {AttributeModel} from "../models/AttributeModel";
 import {AttributeLoaded} from "../redux/actions/attributesActions";
 import {forEach} from "react-bootstrap/ElementChildren";
+import PlateService from "../redux/services/PlateService";
+import {PlateModel} from "../models/PlateModel";
 
 
 export default function Home() {
@@ -47,6 +49,7 @@ export default function Home() {
     const handleReportPreviewOpen = () => {
         setReportPreviewOpen(true);
     }
+    const [plates,setPlates] = React.useState<PlateModel[]>([])
     const [displayingAttributes, setDisplayingAttributes] = React.useState<AttributeModel[]>([])
     const [key, setKey] = React.useState<boolean>(false);
 
@@ -104,12 +107,15 @@ export default function Home() {
                     title: "Тип неисправности",
                     description: "Тип неисправности"
                 }])
-            // if (res !== undefined){
-            //     setDisplayingAttributes(res)
-            // }
+        if (res !== undefined){
+             setDisplayingAttributes(res)
+            }
         })
+        PlateService.getPlates().then((res)=>{
+            if (res !== undefined)
+                setPlates(res)})
         setKey(true)
-    },)
+    },[])
 
     return (
         <>

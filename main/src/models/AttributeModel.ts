@@ -1,5 +1,4 @@
 
-
 export interface AttributeModel {
     id: number,
     title:string,
